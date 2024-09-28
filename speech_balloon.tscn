@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpftcesgbtr1l"]
+
+[ext_resource type="Texture2D" uid="uid://ej6bylae7h4j" path="res://speech_balloon_01_left.png" id="1_s4amx"]
+[ext_resource type="FontFile" uid="uid://bcvj3dyhciqqt" path="res://fonts/Play_Chickens.ttf" id="2_onc7g"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kvkbc"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_ilh4j"]
+transparency = 1
+depth_draw_mode = 2
+no_depth_test = true
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_s4amx")
+
+[node name="SpeechBalloon" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_kvkbc")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ORMMaterial3D_ilh4j")
+
+[node name="Label3D" type="Label3D" parent="MeshInstance3D"]
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0.1, 0)
+modulate = Color(0, 0, 0, 1)
+text = "Salut !"
+font = ExtResource("2_onc7g")
+font_size = 64
